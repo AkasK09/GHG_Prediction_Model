@@ -1,85 +1,67 @@
-# 🧹 Data Cleaning & Visualization Notebook
+# 🌍 Greenhouse Gas Emission Prediction - ML Models (Week 2)
 
-This project provides a complete Google Colab-based framework for handling missing values, removing outliers, and visualizing datasets using Python.
+This project focuses on building regression models to predict **Greenhouse Gas (GHG) Emission Factors** using supply chain data for US commodities from 2016.
 
----
+## 📁 Dataset
+- Source: `SupplyChainEmissionFactorsforUSIndustriesCommodities.xlsx`
+- Sheet used: `2016_Summary_Commodity`
+- Filtered for: `carbon dioxide` entries only
 
-## 📌 Features
-
-- ✅ Upload and preview CSV data
-- ✅ Fill missing values (mean for numeric, mode for categorical)
-- ✅ Remove outliers using the IQR method (safely, per column)
-- ✅ Visualize data (histograms, boxplots, correlation heatmaps)
-- ✅ Download the cleaned dataset
+## 🎯 Objective
+To predict the **Supply Chain Emission Factors with Margins** using various quality and emission-related features.
 
 ---
 
-## 📂 Files
+## 📊 Features Used
 
-- `Data_Cleaning_and_Visualization.ipynb` – Google Colab notebook with all code
-- `cleaned_no_outliers.csv` – Sample cleaned dataset (generated after running the notebook)
-
----
-
-## 🚀 How to Use
-
-1. **Open in Google Colab**  
-   Click below to launch the notebook:  
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](URL_TO_YOUR_NOTEBOOK)
-
-2. **Upload your dataset**  
-   - The notebook will prompt you to upload a `.csv` file
-
-3. **Run all cells**  
-   - Missing values will be handled automatically
-   - Outliers will be removed column-wise using IQR
-   - Visualizations will help you understand data distribution
-
-4. **Download cleaned CSV**  
-   - Use the final cell to download the processed file
+| Feature | Description |
+|--------|-------------|
+| `Supply Chain Emission Factors without Margins` | Raw emission factor |
+| `Margins of Supply Chain Emission Factors` | Additional margin added |
+| `DQ ReliabilityScore` | Data quality: reliability |
+| `DQ TemporalCorrelation` | Data quality: time-based |
+| `DQ GeographicalCorrelation` | Data quality: location-based |
+| `DQ TechnologicalCorrelation` | Data quality: tech-based |
+| `DQ DataCollection` | How data was collected |
 
 ---
 
-## 🧠 Libraries Used
+## 🤖 Models Built
 
-- `pandas` – data manipulation  
-- `matplotlib` & `seaborn` – data visualization  
-- `google.colab` – upload & download files in Colab
-
----
-
-## 🧪 Example Visualizations
-
-- 🔍 Histograms of numeric features  
-- 📦 Boxplots for outlier inspection  
-- 🔥 Correlation heatmap
+1. **Linear Regression**
+2. **Decision Tree Regressor**
+3. **Random Forest Regressor**
+4. ✅ **Tuned Random Forest** (via GridSearchCV)
 
 ---
 
-## 🛠️ Customize It
+## 🧪 Evaluation Metrics
 
-- Replace IQR logic with Z-Score if needed
-- Add one-hot encoding or label encoding for ML prep
-- Integrate with a Streamlit or Flask app
+- **RMSE** - Root Mean Squared Error
+- **MAE** - Mean Absolute Error
+- **R² Score** - Coefficient of Determination
 
----
-
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
+All models were evaluated on a test split (20%).
 
 ---
 
-## 📃 License
+## 📈 Visualizations
 
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 💡 Author
-
-**Akash K** – [LinkedIn](https://www.linkedin.com/in/akash-k-a12842327)
+- 📊 **Residual Plot** – to analyze prediction errors
+- 🌲 **Feature Importance** – from the best model
+- 📊 **Model Comparison** – RMSE, MAE, R² across models
 
 ---
 
-## 🌌 Made with ❤️ in Python
+## 🏆 Best Model
+
+- **Random Forest Regressor (Tuned)** was the best performer.
+- Saved as: `best_random_forest_model.pkl` using `joblib`
+
+---
+
+## 🚀 How to Run
+
+```bash
+pip install -r requirements.txt
+python your_notebook_or_script.py
