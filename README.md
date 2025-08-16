@@ -1,4 +1,4 @@
-# 🌍 Greenhouse Gas Emission Prediction - ML Models (Week 2)
+# 🌍 Greenhouse Gas Emission Prediction - ML Models 
 
 This project focuses on building regression models to predict **Greenhouse Gas (GHG) Emission Factors** using supply chain data for US commodities from 2016.
 
