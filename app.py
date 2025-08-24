@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")  # ✅ Fix for Streamlit Cloud / headless servers
 import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
@@ -10,6 +12,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
 
 st.set_page_config(layout="wide")
 st.title("📊 Supply Chain Emission Factor Model Comparison")
@@ -133,3 +136,4 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"❌ Error: {str(e)}")
+
