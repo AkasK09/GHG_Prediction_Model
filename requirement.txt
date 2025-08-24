@@ -1,9 +1,10 @@
 streamlit
 pandas
 numpy
-matplotlib
+matplotlib.pyplot
 seaborn
 joblib
 scikit-learn
+
 
 
